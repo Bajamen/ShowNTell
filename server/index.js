@@ -535,13 +535,14 @@ app.get('/likedPost/:id', (req, res) => {
 });
 
 app.put('/user/profile', (req, res) => {
+  console.warn(req.body);
   Users.findOneAndUpdate(
     { id: req.cookies.ShowNTellId },
-    { image: req.body.newInfo.image,
-      favShow: req.body.newInfo.show,
-      description: req.body.newInfo.description },
+    { image: req.body.image,
+      favShow: req.body.show,
+      description: req.body.description },
   )
-    .then((data) => console.warn('success', data));
+    .then((data) => console.warn('after db update', data));
 });
 
 app.listen(3000, () => {
