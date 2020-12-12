@@ -3,7 +3,7 @@ const express = require('express');
 const passport = require('passport');
 const axios = require('axios');
 const cors = require('cors');
-const session = require('express-session');
+const session = require('cookie-session');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 require('./db/index');
@@ -34,9 +34,13 @@ passport.deserializeUser((user, done) => {
 
 app.use(
   session({
+    cookie: {
+      secure: true,
+      maxAge: 60000,
+    },
     secret: process.env.CLIENT_SECRET,
-    saveUninitialized: false,
-    resave: true,
+    saveUninitialized: true,
+    resave: false,
   }),
 );
 app.use(passport.initialize());

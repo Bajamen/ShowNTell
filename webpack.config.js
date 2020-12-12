@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const dotenv = require('dotenv');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './client/src/index.jsx',
   output: {
     filename: 'bundle.js',

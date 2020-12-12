@@ -1,7 +1,11 @@
 *:focus {
   outline: none;
 }
-
+.Drawerer {
+  width: 100%;
+  background-color: #140e3e;
+  white-space: 'nowrap';
+}
 .home-title{
   color:white;
   font-weight: bold;
@@ -132,6 +136,7 @@
   margin-top: 2%;
   color: white;
   margin-left: 5%;
+  max-width: 40%;
  }
 
  .comment-author{
@@ -229,6 +234,7 @@
   margin-left: 10%;
   margin-bottom: 5%;
   display: block;
+  max-width: 50%;
 }
 
 .icon-container{
