@@ -15,8 +15,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DropZone from 'react-dropzone';
 import request from 'superagent';
 
-require('regenerator-runtime');
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '48%',
