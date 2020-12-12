@@ -80,7 +80,7 @@ const SearchFeedEntry = ({ show, onClick }) => {
     const theShows = comments.filter((comment) => comment.name === show.name);
     axios.get('/user').then(({ data: { id } }) => {
       const finalComment = theShows.length && theShows[0].rating.filter((comment) => comment.hasOwnProperty(id));
-      setValue(finalComment[0] ? finalComment[0][id] : 0);
+      setValue(finalComment[0] ? finalComment[0][id] : value);
     });
     return value;
   };
@@ -135,7 +135,6 @@ const SearchFeedEntry = ({ show, onClick }) => {
     const { data: { id } } = await axios.get('/user');
     const finalComment = theShows[0].comment.filter((comment) => comment.hasOwnProperty(id));
     setShowComments(finalComment[0][id]);
-    getShows();
   };
 
   const handleClick = async () => {
@@ -172,8 +171,7 @@ const SearchFeedEntry = ({ show, onClick }) => {
           <div className={classes.root}>
             <Rating
               name={show.name}
-              defaultValue={value}
-              value={getRating()}
+              value={getRating() !== 0 ? getRating() : value}
               readOnly={!!value}
               precision={0.5}
               onChange={(event, newValue) => {
